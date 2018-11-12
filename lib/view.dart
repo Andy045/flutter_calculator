@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'MyColor.dart';
 
 ///
@@ -29,13 +30,17 @@ class viewState extends State<view> {
             constraints: BoxConstraints.expand(width: double.infinity),
             color: MyColors.hdb_grey800,
             child: Text(
-              "1",
+              "0",
               key: Key("result"),
               maxLines: 1,
-              style: TextStyle(color: MyColors.hdb_white, decoration: TextDecoration.none, fontSize: 51, fontWeight: FontWeight.bold),
+              style: TextStyle(color: MyColors.hdb_white, decoration: TextDecoration.none, fontSize: 65, fontWeight: FontWeight.bold),
             ),
           ),
           flex: 2,
+        ),
+        new Divider(
+          height: 0.5,
+          color: MyColors.hdb_grey500,
         ),
         new Expanded(
           child: Container(
@@ -44,7 +49,7 @@ class viewState extends State<view> {
             constraints: BoxConstraints.expand(width: double.infinity),
             alignment: Alignment.centerRight,
             child: Text(
-              "",
+              "100 * 100",
               key: Key("input"),
               maxLines: 1,
               overflow: TextOverflow.clip,
@@ -52,40 +57,44 @@ class viewState extends State<view> {
             ),
           ),
         ),
+        new Divider(
+          height: 0.5,
+          color: MyColors.hdb_grey500,
+        ),
         new Expanded(
           child: new Container(
             padding: new EdgeInsets.all(8),
-            color: Colors.red,
+            color: MyColors.hdb_grey600,
           ),
         ),
         new Expanded(
           child: new Container(
             padding: new EdgeInsets.all(8),
-            color: Colors.green,
+            color: MyColors.hdb_grey600,
           ),
         ),
         new Expanded(
           child: new Container(
             padding: new EdgeInsets.all(8),
-            color: Colors.orange,
+            color: MyColors.hdb_grey600,
           ),
         ),
         new Expanded(
           child: new Container(
             padding: new EdgeInsets.all(8),
-            color: Colors.cyanAccent,
+            color: MyColors.hdb_grey600,
           ),
         ),
         new Expanded(
           child: new Container(
             padding: new EdgeInsets.all(8),
-            color: Colors.greenAccent,
+            color: MyColors.hdb_grey600,
           ),
         ),
         new Expanded(
           child: new Container(
             padding: new EdgeInsets.all(8),
-            color: Colors.blueGrey,
+            color: MyColors.hdb_grey600,
           ),
         ),
       ],
