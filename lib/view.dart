@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'MyColor.dart';
+import 'default_button.dart';
 
 ///
 /// File Name
@@ -38,63 +39,285 @@ class viewState extends State<view> {
           ),
           flex: 2,
         ),
-        new Divider(
-          height: 0.5,
-          color: MyColors.hdb_grey500,
-        ),
         new Expanded(
-          child: Container(
-            padding: EdgeInsets.all(8),
-            color: MyColors.hdb_grey700,
-            constraints: BoxConstraints.expand(width: double.infinity),
-            alignment: Alignment.centerRight,
-            child: Text(
-              "100 * 100",
-              key: Key("input"),
-              maxLines: 1,
-              overflow: TextOverflow.clip,
-              style: TextStyle(color: MyColors.hdb_white, decoration: TextDecoration.none, fontSize: 26, fontWeight: FontWeight.normal),
+          child: FractionallySizedBox(
+            widthFactor: 1.0,
+            heightFactor: 1.0,
+            child: Container(
+              padding: EdgeInsets.all(8),
+              color: MyColors.hdb_grey300,
+              alignment: Alignment.centerRight,
+              child: Text(
+                "100 * 100",
+                key: Key("input"),
+                maxLines: 1,
+                overflow: TextOverflow.clip,
+                style: TextStyle(color: MyColors.hdb_grey800, decoration: TextDecoration.none, fontSize: 26, fontWeight: FontWeight.normal),
+              ),
             ),
           ),
         ),
-        new Divider(
-          height: 0.5,
-          color: MyColors.hdb_grey500,
-        ),
         new Expanded(
-          child: new Container(
-            padding: new EdgeInsets.all(8),
-            color: MyColors.hdb_grey600,
+          child: FractionallySizedBox(
+            widthFactor: 1.0,
+            heightFactor: 1.0,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: DefaultButton(
+                    "C",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "del",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "%",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "/",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_yellow700,
+                    activeBackgroundColor: MyColors.hdb_yellow800,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         new Expanded(
-          child: new Container(
-            padding: new EdgeInsets.all(8),
-            color: MyColors.hdb_grey600,
+          child: FractionallySizedBox(
+            widthFactor: 1.0,
+            heightFactor: 1.0,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: DefaultButton(
+                    "7",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "8",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "9",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "X",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_yellow700,
+                    activeBackgroundColor: MyColors.hdb_yellow800,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         new Expanded(
-          child: new Container(
-            padding: new EdgeInsets.all(8),
-            color: MyColors.hdb_grey600,
+          child: FractionallySizedBox(
+            widthFactor: 1.0,
+            heightFactor: 1.0,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: DefaultButton(
+                    "4",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "5",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "6",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "-",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_yellow700,
+                    activeBackgroundColor: MyColors.hdb_yellow800,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         new Expanded(
-          child: new Container(
-            padding: new EdgeInsets.all(8),
-            color: MyColors.hdb_grey600,
+          child: FractionallySizedBox(
+            widthFactor: 1.0,
+            heightFactor: 1.0,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: DefaultButton(
+                    "1",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "2",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "3",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "+",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_yellow700,
+                    activeBackgroundColor: MyColors.hdb_yellow800,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         new Expanded(
-          child: new Container(
-            padding: new EdgeInsets.all(8),
-            color: MyColors.hdb_grey600,
-          ),
-        ),
-        new Expanded(
-          child: new Container(
-            padding: new EdgeInsets.all(8),
-            color: MyColors.hdb_grey600,
+          child: FractionallySizedBox(
+            widthFactor: 1.0,
+            heightFactor: 1.0,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: DefaultButton(
+                    "0",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    ".",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_grey700,
+                    activeBackgroundColor: MyColors.hdb_grey800,
+                  ),
+                ),
+                Expanded(
+                  child: DefaultButton(
+                    "=",
+                    radius: 0,
+                    textSize: 26,
+                    width: double.infinity,
+                    border: Border(
+                      left: BorderSide(color: MyColors.hdb_grey800, width: 1),
+                    ),
+                    minHeight: double.infinity,
+                    backgroundColor: MyColors.hdb_yellow700,
+                    activeBackgroundColor: MyColors.hdb_yellow800,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
