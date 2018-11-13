@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'view.dart';
+import 'package:flutter_calculator/view/HomePage.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: new Scaffold(
-        body: view(),
+        body: HomePage(),
       ),
     );
   }

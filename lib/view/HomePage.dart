@@ -9,15 +9,15 @@ import 'package:flutter_calculator/widgets/DefaultButton.dart';
 /// @description File Description
 /// @date Created in 2018/11/12 9:14 AM
 ///
-class view extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new viewState();
+    return new HomePageState();
   }
 }
 
-class viewState extends State<view> {
+class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
