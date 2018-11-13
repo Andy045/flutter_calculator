@@ -1,41 +1,48 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-enum SizeMode {
-  Small,
-  Medium,
-  Large,
-}
-
 class DefaultButton extends StatefulWidget {
+  static final double smallTextSize = 14;
+  static final double smallMinHeight = 34;
+  static final double mediumTextSize = 16;
+  static final double mediumMinHeight = 36;
+  static final double largeTextSize = 18;
+  static final double largeMinHeight = 38;
+
   Color containerColor;
 
+  final String text;
+
   final double textSize;
+  final FontWeight fontWeight;
+  final double width;
+  final double height;
   final double minHeight;
 
-  final String text;
-  final SizeMode mode;
   final bool disabled;
-  final VoidCallback onPress;
-  final double width;
+  final double radius;
+  final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry margin;
+  final VoidCallback onPress;
   final Color textColor, backgroundColor, activeBackgroundColor, disabledTextColor, disabledBackgroundColor;
 
-  DefaultButton(
-    this.text,
-    this.mode, {
+  DefaultButton(this.text, {
+    this.textSize = 16,
+    this.fontWeight = FontWeight.normal,
+    this.width = double.infinity,
+    this.height,
+    this.minHeight = 36,
     this.disabled = false,
+    this.radius = 6.0,
+    this.padding = const EdgeInsets.all(8),
+    this.margin = const EdgeInsets.all(0),
     this.onPress,
-    this.width,
-    this.margin,
     this.textColor = const Color(0xffffffff),
     this.backgroundColor = const Color(0xff0091ea),
     this.activeBackgroundColor = const Color(0xff0288d1),
     this.disabledTextColor = const Color(0xff757575),
     this.disabledBackgroundColor = const Color(0xffe0e0e0),
-  })  : this.textSize = (mode == SizeMode.Small ? 14 : mode == SizeMode.Medium ? 16 : 18),
-        this.minHeight = (mode == SizeMode.Small ? 34 : mode == SizeMode.Medium ? 36 : 38),
-        this.containerColor = (disabled ? disabledBackgroundColor : backgroundColor);
+  }) : this.containerColor = (disabled ? disabledBackgroundColor : backgroundColor);
 
   @override
   State<StatefulWidget> createState() {
@@ -76,19 +83,21 @@ class _DefaultButtonState extends State<DefaultButton> {
         }
       },
       child: new Container(
-        margin: widget.margin == null ? new EdgeInsets.all(0) : widget.margin,
-        padding: new EdgeInsets.all(8),
+        margin: widget.margin,
+        padding: widget.padding,
         decoration: new BoxDecoration(
           color: widget.containerColor,
-          borderRadius: new BorderRadius.all(new Radius.circular(6)),
+          borderRadius: new BorderRadius.all(new Radius.circular(widget.radius)),
         ),
-        constraints: new BoxConstraints(minHeight: widget.minHeight, minWidth: 88),
-        width: widget.width == null ? double.infinity : widget.width,
+        constraints: new BoxConstraints(minHeight: widget.minHeight),
+        width: widget.width,
+        height: widget.height,
         alignment: Alignment.center,
         child: new Text(
           widget.text,
           textAlign: TextAlign.center,
           style: new TextStyle(
+            fontWeight: widget.fontWeight,
             fontSize: widget.textSize,
             color: widget.disabled ? widget.disabledTextColor : widget.textColor,
           ),
