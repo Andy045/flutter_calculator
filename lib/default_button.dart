@@ -21,6 +21,7 @@ class DefaultButton extends StatefulWidget {
 
   final bool disabled;
   final double radius;
+  final Border border;
   final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry margin;
   final VoidCallback onPress;
@@ -34,6 +35,7 @@ class DefaultButton extends StatefulWidget {
     this.minHeight = 36,
     this.disabled = false,
     this.radius = 6.0,
+    this.border,
     this.padding = const EdgeInsets.all(8),
     this.margin = const EdgeInsets.all(0),
     this.onPress,
@@ -86,6 +88,7 @@ class _DefaultButtonState extends State<DefaultButton> {
         margin: widget.margin,
         padding: widget.padding,
         decoration: new BoxDecoration(
+          border: widget.border,
           color: widget.containerColor,
           borderRadius: new BorderRadius.all(new Radius.circular(widget.radius)),
         ),
