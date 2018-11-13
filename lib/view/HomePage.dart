@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'MyColor.dart';
-import 'default_button.dart';
+import 'package:flutter_calculator/utils/MyColors.dart';
+import 'package:flutter_calculator/widgets/DefaultButton.dart';
 
 ///
 /// File Name
