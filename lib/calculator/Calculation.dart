@@ -20,6 +20,8 @@ class Calculation {
       } else {
         return formulaData.substring(0, formulaData.length - 3);
       }
+    } else {
+      return "";
     }
   }
 
@@ -47,6 +49,8 @@ class Calculation {
         }
       }
       return formulaData;
+    } else {
+      return "";
     }
   }
 
