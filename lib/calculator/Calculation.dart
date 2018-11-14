@@ -17,9 +17,9 @@ class Calculation {
   static String delPress(String formulaData) {
     String subString = formulaData.substring(formulaData.length - 2, formulaData.length - 1);
     if (subString != rem && subString != div && subString != mul && subString != sub && subString != add) {
-      return formulaData.substring(0, formulaData.length - 3);
-    } else {
       return formulaData.substring(0, formulaData.length - 1);
+    } else {
+      return formulaData.substring(0, formulaData.length - 3);
     }
   }
 
