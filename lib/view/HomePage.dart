@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculator/calculator/Calculation.dart';
 import 'package:flutter_calculator/utils/MyColors.dart';
 import 'package:flutter_calculator/widgets/DefaultButton.dart';
 
@@ -10,6 +11,9 @@ import 'package:flutter_calculator/widgets/DefaultButton.dart';
 /// @date Created in 2018/11/12 9:14 AM
 ///
 class HomePage extends StatefulWidget {
+  String _formulaData = "";
+  String _resultData = "";
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -49,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                 color: MyColors.hdb_grey300,
                 alignment: Alignment.centerRight,
                 child: Text(
-                  "100 * 100",
+                  widget._formulaData,
                   key: Key("input"),
                   maxLines: 1,
                   overflow: TextOverflow.clip,
@@ -70,6 +74,12 @@ class _HomePageState extends State<HomePage> {
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
+                      onPress: () {
+                        setState(() {
+                          widget._resultData = "0";
+                          widget._formulaData = "";
+                        });
+                      },
                       margin: EdgeInsets.only(top: 1.5),
                       padding: EdgeInsets.only(left: 1.5, right: 1.5, bottom: 1.5),
                       minHeight: double.infinity,
@@ -93,6 +103,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "%",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += " % ";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -106,6 +121,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "/",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData = Calculation.symbolPress(widget._formulaData, "/");
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -129,6 +149,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "7",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "7";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -142,6 +167,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "8",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "8";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -155,6 +185,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "9",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "9";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -167,7 +202,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     child: DefaultButton(
-                      "X",
+                      "*",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData = Calculation.symbolPress(widget._formulaData, "*");
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -191,6 +231,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "4",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "4";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -204,6 +249,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "5",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "5";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -217,6 +267,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "6",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "6";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -230,6 +285,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "-",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData = Calculation.symbolPress(widget._formulaData, "-");
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       margin: EdgeInsets.only(left: 1.5, top: 1.5),
@@ -253,6 +313,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "1",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "1";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -266,6 +331,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "2",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "2";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -279,6 +349,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "3",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "3";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -292,6 +367,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "+",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData = Calculation.symbolPress(widget._formulaData, "+");
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       margin: EdgeInsets.only(left: 1.5, top: 1.5),
@@ -316,6 +396,11 @@ class _HomePageState extends State<HomePage> {
                     flex: 2,
                     child: DefaultButton(
                       "0",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += "0";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -329,6 +414,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       ".",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += ".";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
@@ -342,6 +432,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: DefaultButton(
                       "=",
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData += " = ";
+                        });
+                      },
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
