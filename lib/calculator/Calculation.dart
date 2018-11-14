@@ -77,6 +77,7 @@ class Calculation {
       List<String> _symData = new List();
       int cacheIndex = 0;
 
+      print("====================公式拆分====================");
       formulaData = formulaData.replaceAll(" ", "");
       String lastChart = formulaData.substring(formulaData.length - 1, formulaData.length);
       if (lastChart == rem || lastChart == div || lastChart == mul || lastChart == sub || lastChart == add) {
@@ -95,50 +96,68 @@ class Calculation {
         _numData.add(formulaData.substring(cacheIndex, formulaData.length));
       }
 
-      print("====================公式拆分====================");
       print("公式拆分，数字：$_numData");
       print("公式拆分，符号：$_symData");
       print("\n");
       print("====================开始计算====================");
 
       int count = 1;
-      List<String> symOrder = new List()..add(mul)..add(div)..add(rem)..add(sub)..add(add);
       while (_symData.length > 0) {
-        for (int i = 0; i < symOrder.length; i++) {
-          while (_symData.contains(symOrder[i])) {
-            int index = _symData.indexOf(symOrder[i]);
-            double X = double.parse(_numData[index]);
-            double Y = double.parse(_numData[index + 1]);
-            if (symOrder[i] == mul) {
-              _numData.insert(index, "${X * Y}");
-              _numData.removeAt(index + 1);
-              _numData.removeAt(index + 1);
-            } else if (symOrder[i] == div) {
-              _numData.insert(index, "${X / Y}");
-              _numData.removeAt(index + 1);
-              _numData.removeAt(index + 1);
-            }  else if (symOrder[i] == rem) {
-              _numData.insert(index, "${X % Y}");
-              _numData.removeAt(index + 1);
-              _numData.removeAt(index + 1);
-            } else if (symOrder[i] == sub) {
-              _numData.insert(index, "${X - Y}");
-              _numData.removeAt(index + 1);
-              _numData.removeAt(index + 1);
-            } else if (symOrder[i] == add) {
-              _numData.insert(index, "${X + Y}");
-              _numData.removeAt(index + 1);
-              _numData.removeAt(index + 1);
+        if (_symData.contains(mul) || _symData.contains(div) || _symData.contains(rem)) {
+          for (int i = 0; i < _symData.length; i++) {
+            if (_symData[i] == mul || _symData[i] == div || _symData[i] == rem) {
+              double X = double.parse(_numData[i]);
+              double Y = double.parse(_numData[i + 1]);
+              if (_symData[i] == mul) {
+                _numData.insert(i, "${X * Y}");
+                _numData.removeAt(i + 1);
+                _numData.removeAt(i + 1);
+              } else if (_symData[i] == div) {
+                _numData.insert(i, "${X / Y}");
+                _numData.removeAt(i + 1);
+                _numData.removeAt(i + 1);
+              } else if (_symData[i] == rem) {
+                _numData.insert(i, "${X % Y}");
+                _numData.removeAt(i + 1);
+                _numData.removeAt(i + 1);
+              }
+              _symData.removeAt(i);
+
+              print("$count 、");
+              print("数字：$_numData");
+              print("符号：$_symData");
+              print("\n");
+              i--;
+              count++;
             }
-            _symData.removeAt(index);
-            print("$count 、");
-            print("数字：$_numData");
-            print("符号：$_symData");
-            print("\n");
-            count++;
+          }
+        } else {
+          for (int i = 0; i < _symData.length; i++) {
+            if (_symData[i] == sub || _symData[i] == add) {
+              double X = double.parse(_numData[i]);
+              double Y = double.parse(_numData[i + 1]);
+              if (_symData[i] == sub) {
+                _numData.insert(i, "${X - Y}");
+                _numData.removeAt(i + 1);
+                _numData.removeAt(i + 1);
+              } else if (_symData[i] == add) {
+                _numData.insert(i, "${X + Y}");
+                _numData.removeAt(i + 1);
+                _numData.removeAt(i + 1);
+              }
+              _symData.removeAt(i);
+
+              print("$count 、");
+              print("数字：$_numData");
+              print("符号：$_symData");
+              print("\n");
+              i--;
+              count++;
+            }
           }
         }
       }
+      print("计算结果：${_numData[0]}");
       return _numData[0];
     }
   }
