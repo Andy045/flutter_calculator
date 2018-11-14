@@ -102,7 +102,7 @@ class Calculation {
       print("====================开始计算====================");
 
       int count = 1;
-      List<String> symOrder = new List()..add(mul)..add(div)..add(sub)..add(add);
+      List<String> symOrder = new List()..add(mul)..add(div)..add(rem)..add(sub)..add(add);
       while (_symData.length > 0) {
         for (int i = 0; i < symOrder.length; i++) {
           while (_symData.contains(symOrder[i])) {
@@ -115,6 +115,10 @@ class Calculation {
               _numData.removeAt(index + 1);
             } else if (symOrder[i] == div) {
               _numData.insert(index, "${X / Y}");
+              _numData.removeAt(index + 1);
+              _numData.removeAt(index + 1);
+            }  else if (symOrder[i] == rem) {
+              _numData.insert(index, "${X % Y}");
               _numData.removeAt(index + 1);
               _numData.removeAt(index + 1);
             } else if (symOrder[i] == sub) {
