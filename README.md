@@ -1,8 +1,1 @@
-# flutter_calculator
-
-A new Flutter application.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+# 一个使用Flutter开发的计算器小程序
