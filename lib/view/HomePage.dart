@@ -93,6 +93,11 @@ class _HomePageState extends State<HomePage> {
                       radius: 0,
                       textSize: 26,
                       width: double.infinity,
+                      onPress: () {
+                        setState(() {
+                          widget._formulaData = Calculation.delPress(widget._formulaData);
+                        });
+                      },
                       margin: EdgeInsets.only(left: 1.5, top: 1.5),
                       padding: EdgeInsets.only(right: 1.5, bottom: 1.5),
                       minHeight: double.infinity,
@@ -416,7 +421,9 @@ class _HomePageState extends State<HomePage> {
                       ".",
                       onPress: () {
                         setState(() {
-                          widget._formulaData += ".";
+                          if (!Calculation.pointPress(widget._formulaData)) {
+                            widget._formulaData += ".";
+                          }
                         });
                       },
                       radius: 0,
