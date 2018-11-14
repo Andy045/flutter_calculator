@@ -1,6 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+///
+/// 自定义的按钮控件
+///
+/// @author liujie https://github.com/Handy045
+/// @description File Description
+/// @date Created in 2018/11/12 9:13 AM
+///
 class DefaultButton extends StatefulWidget {
   static final double smallTextSize = 14;
   static final double smallMinHeight = 34;
