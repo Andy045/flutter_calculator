@@ -25,9 +25,15 @@ class Calculation {
 
   static String symbolPress(String formulaData, String symbol) {
     if (formulaData.trim().isNotEmpty) {
+      bool canPress = true;
       formulaData += formulaData.substring(formulaData.length - 1, formulaData.length) == "." ? "0" : "";
-      String subString = formulaData.substring(formulaData.length - 2, formulaData.length - 1);
-      if (subString != rem && subString != div && subString != mul && subString != sub && subString != add) {
+
+      if (formulaData.length > 1) {
+        String subString = formulaData.substring(formulaData.length - 2, formulaData.length - 1);
+        canPress = !(subString == rem || subString == div || subString == mul || subString == sub || subString == add);
+      }
+
+      if (canPress) {
         if (symbol == rem) {
           formulaData += " $symbol ";
         } else if (symbol == div) {
