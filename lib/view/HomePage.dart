@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                       "%",
                       onPress: () {
                         setState(() {
-                          widget._formulaData += " % ";
+                          widget._formulaData = Calculation.symbolPress(widget._formulaData, "%");
                         });
                       },
                       radius: 0,
