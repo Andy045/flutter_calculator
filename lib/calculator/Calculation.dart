@@ -95,9 +95,47 @@ class Calculation {
         _numData.add(formulaData.substring(cacheIndex, formulaData.length));
       }
 
-      print(_numData);
-      print(_symData);
-      return "0";
+      print("====================公式拆分====================");
+      print("公式拆分，数字：$_numData");
+      print("公式拆分，符号：$_symData");
+      print("\n");
+      print("====================开始计算====================");
+
+      int count = 1;
+      List<String> symOrder = new List()..add(mul)..add(div)..add(sub)..add(add);
+      while (_symData.length > 0) {
+        for (int i = 0; i < symOrder.length; i++) {
+          while (_symData.contains(symOrder[i])) {
+            int index = _symData.indexOf(symOrder[i]);
+            double X = double.parse(_numData[index]);
+            double Y = double.parse(_numData[index + 1]);
+            if (symOrder[i] == mul) {
+              _numData.insert(index, "${X * Y}");
+              _numData.removeAt(index + 1);
+              _numData.removeAt(index + 1);
+            } else if (symOrder[i] == div) {
+              _numData.insert(index, "${X / Y}");
+              _numData.removeAt(index + 1);
+              _numData.removeAt(index + 1);
+            } else if (symOrder[i] == sub) {
+              _numData.insert(index, "${X - Y}");
+              _numData.removeAt(index + 1);
+              _numData.removeAt(index + 1);
+            } else if (symOrder[i] == add) {
+              _numData.insert(index, "${X + Y}");
+              _numData.removeAt(index + 1);
+              _numData.removeAt(index + 1);
+            }
+            _symData.removeAt(index);
+            print("$count 、");
+            print("数字：$_numData");
+            print("符号：$_symData");
+            print("\n");
+            count++;
+          }
+        }
+      }
+      return _numData[0];
     }
   }
 }
