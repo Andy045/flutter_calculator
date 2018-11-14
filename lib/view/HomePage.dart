@@ -12,7 +12,7 @@ import 'package:flutter_calculator/widgets/DefaultButton.dart';
 ///
 class HomePage extends StatefulWidget {
   String _formulaData = "";
-  String _resultData = "";
+  String _resultData = "0";
 
   @override
   State<StatefulWidget> createState() {
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               constraints: BoxConstraints.expand(width: double.infinity),
               color: MyColors.hdb_grey800,
               child: Text(
-                "0",
+                widget._resultData,
                 key: Key("result"),
                 maxLines: 1,
                 style: TextStyle(color: MyColors.hdb_white, decoration: TextDecoration.none, fontSize: 65, fontWeight: FontWeight.bold),
@@ -434,7 +434,7 @@ class _HomePageState extends State<HomePage> {
                       "=",
                       onPress: () {
                         setState(() {
-                          widget._formulaData += " = ";
+                          widget._resultData = Calculation.equalPress(widget._formulaData);
                         });
                       },
                       radius: 0,
