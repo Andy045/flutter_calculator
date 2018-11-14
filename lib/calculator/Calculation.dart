@@ -13,9 +13,7 @@ class Calculation {
   static final String add = "+";
 
   static String delPress(String formulaData) {
-    if (formulaData
-        .trim()
-        .isNotEmpty) {
+    if (formulaData.trim().isNotEmpty) {
       String subString = formulaData.substring(formulaData.length - 2, formulaData.length - 1);
       if (subString != rem && subString != div && subString != mul && subString != sub && subString != add) {
         return formulaData.substring(0, formulaData.length - 1);
@@ -26,9 +24,7 @@ class Calculation {
   }
 
   static String symbolPress(String formulaData, String symbol) {
-    if (formulaData
-        .trim()
-        .isNotEmpty) {
+    if (formulaData.trim().isNotEmpty) {
       formulaData += formulaData.substring(formulaData.length - 1, formulaData.length) == "." ? "0" : "";
       String subString = formulaData.substring(formulaData.length - 2, formulaData.length - 1);
       if (subString != rem && subString != div && subString != mul && subString != sub && subString != add) {
@@ -49,9 +45,7 @@ class Calculation {
   }
 
   static bool pointPress(String formulaData) {
-    if (formulaData
-        .trim()
-        .isEmpty) {
+    if (formulaData.trim().isEmpty) {
       return true;
     } else {
       String cache = formulaData.replaceAll(rem, "#").replaceAll(div, "#").replaceAll(mul, "#").replaceAll(sub, "#").replaceAll(add, "#");
@@ -60,9 +54,7 @@ class Calculation {
         return true;
       } else {
         String lastString = splitString[splitString.length - 1];
-        if (lastString
-            .trim()
-            .isEmpty) {
+        if (lastString.trim().isEmpty) {
           return true;
         } else {
           return lastString.contains(".");
@@ -72,9 +64,7 @@ class Calculation {
   }
 
   static String equalPress(String formulaData) {
-    if (formulaData
-        .trim()
-        .isEmpty) {
+    if (formulaData.trim().isEmpty) {
       return "0";
     } else {
       List<String> _numData = new List();
